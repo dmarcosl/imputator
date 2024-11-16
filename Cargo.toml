@@ -1,0 +1,13 @@
+[package]
+name = "imputator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+reqwest = { version = "0.12.9", features = ["json", "cookies"] }
+serde_json = "1.0.132"
+tokio = { version = "1.0.0", features = ["rt", "rt-multi-thread", "macros"] }
+serde = { version = "1.0.215", features = ["derive"] }
+csv = "1.1"
+serde_derive = "1.0"
+rusqlite = { version = "0.32.1", features = ["bundled"] }
