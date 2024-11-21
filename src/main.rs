@@ -55,6 +55,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 // If it is already imputed without changes, skip it
                 if imputation.compare(&db_imputation.1) {
                     print!("  No changes detected, it'll be skipped\n");
+                    index += 1;
                     continue;
                 }
                 print!("  Changes detected, it'll be updated\n");
