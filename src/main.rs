@@ -77,6 +77,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         if user_credentials.is_none() {
             println!("  User {} not found in credentials file", imputation.user);
+            index += 1;
             continue;
         }
 
@@ -92,6 +93,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let issue_id = get_issue_id(&mut conn, &imputation.issue, &client).await?;
 
             if is_updated {
+                print!("  Updating imputation\n");
                 update_imputation(
                     &mut conn,
                     &mut client,
@@ -102,6 +104,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 )
                 .await?;
             } else {
+                print!("  Creating imputation\n");
                 let tempo_id = create_imputation(
                     &mut conn,
                     &mut client,
